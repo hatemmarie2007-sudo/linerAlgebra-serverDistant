@@ -1,0 +1,72 @@
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        double x, y;
+        System.out.println("enter your x,y coordinates");
+        x = s.nextDouble();
+        y = s.nextDouble();
+        System.out.println("enter sever 1 x,y cooradinate");
+        calculateDistant serv1 = new calculateDistant(s.nextDouble(), s.nextDouble());
+        System.out.println("enter sever 2 x,y cooradinate");
+        calculateDistant serv2 = new calculateDistant(s.nextDouble(), s.nextDouble());
+        double dist1 = serv1.getDistant(x, y);
+        double dist2 = serv2.getDistant(x, y);
+        System.out.println("the total distant of server 1 = "+dist1);
+        System.out.println("the total distant of server 2 = "+dist2);
+        if(dist1<dist2){
+            System.out.println("connected to server 1");   
+            
+        }
+        else if (dist1==dist2){    
+            System.out.println("same distant connected to server 1 'default' ");   
+            
+        }
+        else
+            System.out.println("connected to sevrver 2");
+    }
+
+}
+
+package javaapplication1;
+
+public class calculateDistant {
+    private double x_serv,y_serv;
+
+    public calculateDistant(double x_serv, double y_serv) {
+        this.x_serv = x_serv;
+        
+        this.y_serv = y_serv;
+        
+    }
+
+    public double getX_serv1() {
+        return x_serv;
+    }
+
+    public void setX_serv1(double x_serv1) {
+        this.x_serv = x_serv1;
+    }
+
+   
+    public double getY_serv() {
+        return y_serv;
+    }
+
+    public void setY_serv(double y_serv) {
+        this.y_serv = y_serv;
+    }
+
+   
+public double getDistant(double x,double y){
+    double dx = this.x_serv - x;
+        double dy = this.y_serv - y;
+        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+}
+    
+}
+
